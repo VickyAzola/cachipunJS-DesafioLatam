@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cachipun</title>
+</head>
+<body>
+  
+  <script>
+    //1. Solicitar al usuario las veces que desea que se repita el juego
+    let cantidadJuegos = parseInt(prompt("Ingresa la cantidad de veces que deseas jugar: "));
+
+    //2. Generar un numero random para la máquina entre 0 y 2
+    let numeroRandom = Math.floor(Math.random() * 3) 
+
+    //3.contador de ganadas maquina
+    let ganadasMaquina = 0
+
+    //4. Definir jugada automática de la maquina
+    let jugadaMaquina
+
+    if (numeroRandom === 0) {
+      jugadaMaquina = "piedra"
+    } else if  (numeroRandom === 1) {
+      jugadaMaquina = "papel"
+    } else if (numeroRandom === 2) {
+      jugadaMaquina = "tijera"
+    }
+
+    //5. contador de ganadas usuario
+    let ganadasUsuario = 0
+
+    //6. Jugar usuario V/S maquina
+    for (let i = 1; i <= cantidadJuegos; i++) {
+
+    //7. Solicitar al usuario que indique su jugada
+    let jugadaUsuario = prompt("Elige: Piedra, Papel o Tijera")
+
+    //8. Analizar posibilidades
+    if (
+        jugadaUsuario.toLowerCase() === "piedra" && jugadaMaquina === "piedra" ||
+        jugadaUsuario.toLowerCase() === "papel" && jugadaMaquina === "papel" ||
+        jugadaUsuario.toLowerCase() === "tijera" && jugadaMaquina === "tijera"
+      ) {
+        alert(`elegiste ${jugadaUsuario} y la maquina ${jugadaMaquina}: Empate`)
+      } else if (
+        jugadaUsuario.toLowerCase() === "piedra" && jugadaMaquina === "tijera" ||
+        jugadaUsuario.toLowerCase() === "papel" && jugadaMaquina === "piedra" ||
+        jugadaUsuario.toLowerCase() === "tijera" && jugadaMaquina === "papel"
+      ) {
+        alert(`elegiste ${jugadaUsuario} y la maquina ${jugadaMaquina}: Ganaste esta ronda`)
+        ganadasUsuario++
+      } else if (
+        jugadaUsuario.toLowerCase() === "tijera" && jugadaMaquina === "piedra" ||
+        jugadaUsuario.toLowerCase() === "piedra" && jugadaMaquina === "papel" ||
+        jugadaUsuario.toLowerCase() === "papel" && jugadaMaquina === "tijera"
+      ) {
+        alert(`elegiste ${jugadaUsuario} y la maquina ${jugadaMaquina}: Perdiste esta ronda`)
+        ganadasMaquina++
+      } else {
+        alert("Ingresa una opcion adecuada: Piedra, Papel o Tijera")
+        i--
+      }
+    }
+
+    //9. Definir al ganador
+    if (ganadasUsuario > ganadasMaquina) {
+      alert(`Le ganste a la maquina con ${ganadasUsuario} rondas`)
+    } else if (ganadasUsuario < ganadasMaquina) {
+      alert(`perdiste, la maquina gano ${ganadasMaquina} rondas`)
+    } else if (ganadasUsuario === ganadasMaquina) {
+      alert(`Hay un empate, ganaste ${ganadasUsuario} rondas y la maquina gano ${ganadasMaquina} rondas`)
+    }
+
+  </script>
+
+</body>
+</html>
