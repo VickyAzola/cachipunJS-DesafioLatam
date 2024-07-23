@@ -19,3 +19,7 @@ Al final del juego, se muestra el resultado de cada ronda y el ganador final.
 ## Nota
 - Asegúrate de ingresar valores válidos cuando se te solicite la jugada (piedra, papel o tijera).
 - Si ingresas un valor incorrecto, el juego te pedirá que lo ingreses nuevamente sin contar esa ronda.
+
+## Autor
+
+- **Desarrolladora**: [Victoria Azola Silva](https://github.com/VickyAzola) - Responsable del desarrollo del código.
